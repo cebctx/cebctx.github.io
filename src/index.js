@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import I18n from './lib/I18n';
+
+window.I18n = I18n;
+
+const availablePages = ['home'];
+
+// Get current page if navigating from elsewhere
+const url = new URL(window.location.href);
+let page = url.searchParams.get('p');
+if (!availablePages.includes(page)) {
+  page = 'home';
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App page={page} />
   </React.StrictMode>
 );
 
