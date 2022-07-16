@@ -1,11 +1,8 @@
-const Item = ({ isActive, onClick, page }) => {
-  const onItemClick = () => {
-    onClick(page);
-  };
+import { NavLink } from 'react-router-dom';
 
+const Item = ({ page }) => {
   // too many classes so they're joined from a more manageable array
-  const itemContainerCls = [
-    isActive ? 'shadow-lg shadow-cyan-500/50' : '',
+  const className = [
     'cursor-pointer', // pointer
     'bg-blue-300', // default background
     'active:bg-blue-400', // background when active
@@ -15,12 +12,17 @@ const Item = ({ isActive, onClick, page }) => {
     'drop-shadow-lg', // effects
   ].join(' ');
 
+  const activeClassName = 'shadow-lg shadow-cyan-500/50';
+
   return (
-    <div className={itemContainerCls} onClick={onItemClick}>
+    <NavLink
+      to={`/${page.path}`}
+      className={({ isActive }) => isActive ? `${className} ${activeClassName}` : className}
+    >
       <span className='select-none drop-shadow-md text-amber-50'>
-        { window.I18n.t(page.name) }
+        {window.I18n.t(page.name)}
       </span>
-    </div>
+    </NavLink>
   );
 };
 

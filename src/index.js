@@ -1,25 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import App from './js/App';
 import reportWebVitals from './reportWebVitals';
-import I18n from './lib/I18n';
+import I18n from './js/lib/I18n';
 
 window.I18n = I18n;
-
-const availablePages = ['home'];
-
-// Get current page if navigating from elsewhere
-const url = new URL(window.location.href);
-let page = url.searchParams.get('p');
-if (!availablePages.includes(page)) {
-  page = 'home';
-}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App page={page} />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </React.StrictMode>
 );
 

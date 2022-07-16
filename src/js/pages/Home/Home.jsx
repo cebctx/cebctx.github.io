@@ -1,8 +1,9 @@
+import Wrapper from '../../components/Wrapper';
 const Home = () => {
   return (
-    <div>
+    <Wrapper>
       Ipsom lorem something
-    </div>
+    </Wrapper>
   );
 };
 
