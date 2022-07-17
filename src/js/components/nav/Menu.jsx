@@ -1,7 +1,7 @@
 import Home from '../../pages/Home/Home';
 import Item from './Item';
 
-const Menu = () => {
+const Menu = ({ className }) => {
   const pages = [
     {
       path: '/',
@@ -10,15 +10,17 @@ const Menu = () => {
   ];
 
   return (
-    <ul>
-      {pages.map((page) => {
-        return (
-          <li key={`${page.path}-${page.name}`}>
-            <Item page={page} />
-          </li>
-        )
-      })}
-    </ul>
+    <nav className={className}>
+      <ul className='flex'>
+        {pages.map((page) => {
+          return (
+            <li key={`${page.path}-${page.name}`}>
+              <Item page={page} />
+            </li>
+          )
+        })}
+      </ul>
+    </nav>
   );
 }
 

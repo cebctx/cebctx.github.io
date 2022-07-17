@@ -2,9 +2,11 @@ import Menu from './Menu';
 
 const NavBar = ({ title }) => {
   return (
-    <header className='flex flex-col pb-3 items-center mt-5 h-[50px] w-full'>
-      <h1 className='cebc-title text-2xl select-none subpixel-antialiased'>{ title }</h1>
-      <Menu />
+    <header className='flex flex-col items-center'>
+      <div className='church-logo-container'>
+        <img src='/i/logo_500x500.png' className='church-logo w-44 my-5 pointer-events-none' alt={title} />
+      </div>
+      <Menu className='my-2' />
     </header>
   )
 };
