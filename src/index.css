@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.church-logo-container {
-  filter: drop-shadow(0 0 0.75rem yellow);
-}
-
-.church-logo {
-  clip-path: circle(87px);
+html, body, #root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }

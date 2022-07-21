@@ -1,15 +1,18 @@
-import NavBar from './nav/NavBar';
-import Separator from './Separator';
+import Navigation from './Navigation/Navigation';
 
-const Wrapper = ({ children }) => {
+/**
+ * @param {Object}  props           Properties passed to this component.
+ * @param {Array}   props.children  Child elements/components passed to this component.
+ * @returns {Wrapper}
+ */
+const Wrapper = (props) => {
   return (
-    <div className='flex justify-center min-h-screen bg-gradient-to-b from-blue-300 via-orange-100 to-indigo-200'>
-      <div className='w-[1000px]'>
-        <NavBar title={window.I18n.t('chin_evangelical_baptist_church_of_texas')} />
-        <Separator />
-        <main className='px-2'>
-          {children}
-        </main>
+    // Page container
+    <div className='h-full flex flex-col grow'>
+      {/* Container for everything else but a few modals */}
+      <div className='flex grow'>
+        {/* Left navigation and transparent backdrop container */}
+        <Navigation />
       </div>
     </div>
   );

@@ -4,9 +4,13 @@ import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './js/App';
 import reportWebVitals from './reportWebVitals';
+import classNames from './js/lib/ClassNames';
 import I18n from './js/lib/I18n';
+import env from './js/config/env';
 
+window.classNames = classNames;
 window.I18n = I18n;
+window.env = env;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
